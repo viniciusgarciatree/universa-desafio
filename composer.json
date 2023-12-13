@@ -1,0 +1,47 @@
+{
+    "name": "universa-educaional/universa-desafio",
+    "description": "Desafio Universa Educacional",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "framework",
+        "mvc",
+        "zf",
+        "universa"
+    ],
+    "homepage": "http://framework.zend.com/",
+    "require": {
+        "php": "^7.4",
+        "zendframework/zendframework": "^3.0",
+        "zendframework/zend-mvc": "^3.1",
+        "zendframework/zend-log": "^2.11",
+        "zendframework/zend-router": "^3.3",
+        "zendframework/zend-mvc-i18n": "^1.1",
+        "zendframework/zend-db": "^2.11",
+        "zendframework/zend-mvc-console": "^1.2",
+        "doctrine/doctrine-orm-module": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Universa\\": "module/Universa/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PersonTest\\": "module/Person/test/"
+        }
+    },
+    "scripts": {
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "development-disable": "zf-development-mode disable",
+        "development-enable": "zf-development-mode enable",
+        "development-status": "zf-development-mode status",
+        "post-create-project-cmd": [
+            "@development-enable",
+            "php bin/update-gitignore.php"
+        ],
+        "serve": "php -S 0.0.0.0:8080 -t public",
+        "test": "phpunit"
+    }
+}

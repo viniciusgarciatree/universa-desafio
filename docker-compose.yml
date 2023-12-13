@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  universa:
+    container_name: desafio
+    image: universa-desafio:latest
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:9000"
+    volumes:
+      - .:/var/www

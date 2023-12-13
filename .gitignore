@@ -1,0 +1,7 @@
+vendor/
+config/development.config.php
+data/cache/*
+data/db.sqlite
+!data/cache/.gitkeep
+phpunit.xml
+composer.lock

@@ -1,0 +1,36 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="card">
+        <div class="card-header">
+                <h2 class="card-title">Cadastro de pessoas</h2>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Listagem</h3>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($persons as $person) : ?>
+                        <tr>
+                        <th scope="row"><?= $this->escapeHtml($person->getId()) ?></th>
+                        <td><?= $this->escapeHtml($person->getName()) ?></td>
+                        <td>
+                            <a href="<?= $this->url('universa/default', ['controller' => 'person', 'action' => 'edit', 'id' => $person->getId()]) ?>">Edit</a>
+                            <a href="<?= $this->url('universa/default', ['controller' => 'person', 'action' => 'delete', 'id' => $person->getId()]) ?>">Delete</a>
+                        </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <a class="btn btn-primary" href="<?= $this->url('universa/default', ['controller' => 'person', 'action' => 'add']) ?>">Adicionar</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<?php
+
+$title = 'Edit pessoa';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<?php
+$person = $form->get('name');
+$person->setAttribute('class', 'form-control');
+$person->setAttribute('placeholder', 'Pessoa nome');
+
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('universa/default', ['controller' => 'person', 'action' => 'edit', 'id' => $id]));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+<div class="form-group">
+    <?= $this->formLabel($person) ?>
+    <?= $this->formElement($person) ?>
+    <?= $this->formElementErrors()->render($person, ['class' => 'help-block']) ?>
+</div>
+
+
+<?php
+echo $this->formSubmit($submit);
+echo $this->formHidden($form->get('id'));
+echo $this->form()->closeTag();
